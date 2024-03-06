@@ -23,8 +23,8 @@ export function MainHeading() {
     },
   ];
   return (
-    <div className="flex flex-col items-center justify-center h-[40rem] dark:bg-black dark:bg-dot-white/[0.2] ">
-      <p className="text-neutral-600 dark:text-neutral-200 dark:bg-black text-xs sm:text-base  ">
+    <div className="flex flex-col items-center justify-center h-[40rem] dark:bg-black dark:bg-dot-white/[0.2] rounded-lg">
+      <p className="text-neutral-600 dark:text-neutral-200 dark:bg-black sm:text-2xl text-sm">
         The road to freedom starts from here
       </p>
       <TypewriterEffectSmooth words={words} />
@@ -32,7 +32,7 @@ export function MainHeading() {
         <button className="w-40 h-10 rounded-xl bg-black border dark:border-white border-transparent text-white text-sm">
           Join now
         </button>
-        <button className="w-40 h-10 dark:text-white rounded-xl dark:bg-black bg-white text-black border border-black  text-sm">
+        <button className="w-40 h-10 dark:text-white rounded-xl dark:bg-black bg-white text-black border border-black dark:border-white text-sm">
           Signup
         </button>
       </div>
