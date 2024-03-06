@@ -1,5 +1,7 @@
 import Puppeteer from "puppeteer";
 import { join } from "path";
+import { customCSS } from "../constants/customcss.constants.js";
+import os from "os";
 
 //@parameter type name : string,format : string||'pdf' by default and url : string
 //@return type promise
@@ -9,11 +11,34 @@ async function scrapper(name, format = "pdf", url) {
   try {
     const browser = await Puppeteer.launch();
     const page = await browser.newPage();
-    // console.log("value :");
-    // console.log(`${url}/company/${name}`);
     await page.goto(join(url, "company", name));
     await page.emulateMediaType("screen");
-    await page.pdf({ path: `${name}.${format}` });
+    await page.addStyleTag({ content: customCSS });
+    if (format == "pdf") {
+      await page.pdf({
+        path: join(
+          os.homedir(),
+          "Downloads",
+          "Storage",
+          format,
+          `${name}.${format}`
+        ),
+        format: "A4",
+        displayHeaderFooter: false,
+        landscape: true,
+      });
+    } else if (format == "png") {
+      await page.screenshot({
+        path: join(
+          os.homedir(),
+          "Downloads",
+          "Storage",
+          format,
+          `${name}.${format}`
+        ),
+        fullPage: true,
+      });
+    }
     await browser.close();
   } catch (error) {
     console.log("something went wrong : ", error);

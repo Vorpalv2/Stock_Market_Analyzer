@@ -14,6 +14,15 @@ const StorageDir = path.join(DownloadsDir, "Storage");
 async function checkDirectory(format) {
   if (!fsync.existsSync(StorageDir)) {
     await fs.mkdir(StorageDir);
+    const result = await format.map(async (element) => {
+      let childDir = path.join(StorageDir, element);
+      if (!fsync.existsSync(childDir)) {
+        await fs.mkdir(childDir);
+        return childDir;
+      }
+      return null;
+    });
+    return Promise.all(result);
   } else {
     const result = await format.map(async (element) => {
       let childDir = path.join(StorageDir, element);
