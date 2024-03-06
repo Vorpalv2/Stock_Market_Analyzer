@@ -12,7 +12,6 @@ app.use("/api", APIRoute);
 
 app.listen(process.env.PORT || 4000, () => {
   console.log("server is running on PORT : ", process.env.PORT);
-  console.log(process.env.URI);
 });
 
 export { app };

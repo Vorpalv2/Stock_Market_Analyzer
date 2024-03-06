@@ -3,6 +3,10 @@ import fs from "fs/promises";
 import fsync from "fs";
 import os from "os";
 
+//@parameter type : Array // checkDirectory takes an array as argument
+//@return type,value: promise||null either promise or null based on the if clause.
+//@export CheckDirectory function
+
 const rootDir = os.homedir();
 const DownloadsDir = path.join(rootDir, "Downloads");
 const StorageDir = path.join(DownloadsDir, "Storage");
@@ -22,10 +26,5 @@ async function checkDirectory(format) {
     return Promise.all(result);
   }
 }
-
-// (async () => {
-//   let result = await checkDirectory(["PDF", "PNG", "JPG", "TXT", "PPT"]);
-//   console.log(result);
-// })();
 
 export { checkDirectory };

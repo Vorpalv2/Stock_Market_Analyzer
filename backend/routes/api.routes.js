@@ -10,7 +10,8 @@ APIRoute.get(`/`, (req, res) => {
 
 APIRoute.post(`/`, async (req, res) => {
   const { name, format } = req.body;
-  console.log(await scrapper(name, format, process.env.URI));
+  const result = await scrapper(name, format, process.env.URI);
+  res.send(result);
 });
 
 export { APIRoute };
