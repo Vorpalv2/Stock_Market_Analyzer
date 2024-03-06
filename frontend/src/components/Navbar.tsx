@@ -9,8 +9,8 @@ export function Navbar() {
       icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
-      name: "About",
-      link: "/about",
+      name: "Try it",
+      link: "/try",
       icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
     {
@@ -22,7 +22,7 @@ export function Navbar() {
     },
   ];
   return (
-    <div className="relative  w-full">
+    <div className="relative  w-full dark:bg-black dark:bg-grid-white/[0.2]">
       <FloatingNav navItems={navItems} />
       {/* <DummyContent /> */}
     </div>
