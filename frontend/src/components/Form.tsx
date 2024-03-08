@@ -2,11 +2,16 @@ import { useState } from "react";
 
 const FormHandle = () => {
   const [formData, setFormData] = useState("");
+  const [value, setValue] = useState("");
+
+  function valueHandler(event: React.ChangeEvent<HTMLInputElement>) {
+    setValue(event.target.value);
+  }
 
   function handleSubmit(event: React.ChangeEvent<HTMLInputElement>) {
     setFormData(event?.target.value);
   }
-
+  console.log(value);
   console.log(formData);
 
   return (
@@ -15,6 +20,7 @@ const FormHandle = () => {
         <h1 className="dark:text-white text-2xl">Company Information</h1>
         <h3 className="dark:text-white text-2xl">
           Entered Company Name : {formData}
+          Entered Value : {value}
         </h3>
         <form className="flex flex-col pt-2" action="/formsubmit" method="post">
           <input
@@ -26,7 +32,12 @@ const FormHandle = () => {
             onChange={handleSubmit}
             placeholder="Enter Company Name/Symbol"
           />
-          <select className="p-2 mb-2" name="filetype" id="filetype">
+          <select
+            onChange={valueHandler}
+            className="p-2 mb-2"
+            name="filetype"
+            id="filetype"
+          >
             <option defaultChecked value="pdf">
               PDF
             </option>
