@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "type": "Classic",
+    "joke": "Why did the scarecrow win an award?",
+    "punchline": "Because he was outstanding in his field!"
+  },
+  {
+    "id": 2,
+    "type": "Domestic",
+    "joke": "I told my wife she was drawing her eyebrows too high.",
+    "punchline": "She looked surprised."
+  },
+  {
+    "id": 3,
+    "type": "Skeleton",
+    "joke": "Why don't skeletons fight each other?",
+    "punchline": "They don't have the guts."
+  },
+  {
+    "id": 4,
+    "type": "Pun",
+    "joke": "Why did the bicycle fall over?",
+    "punchline": "Because it was two-tired!"
+  },
+  {
+    "id": 5,
+    "type": "Book",
+    "joke": "I'm reading a book on anti-gravity.",
+    "punchline": "It's impossible to put down!"
+  }
+]

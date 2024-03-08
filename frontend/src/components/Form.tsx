@@ -2,10 +2,25 @@ import { useState } from "react";
 
 const FormHandle = () => {
   const [formData, setFormData] = useState("");
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState("pdf");
 
   function valueHandler(event: React.ChangeEvent<HTMLInputElement>) {
     setValue(event.target.value);
+  }
+
+  async function fetchData(event: React.ChangeEvent<HTMLInputElement>) {
+    event.preventDefault();
+    const data = await fetch("/api/formsubmit", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ formData, value }),
+    });
+    console.log(data);
+    console.log(
+      `Data Fetched for ${formData} in ${value} format, Open your Downloads and look inside Storage Folder`
+    );
   }
 
   function handleSubmit(event: React.ChangeEvent<HTMLInputElement>) {
@@ -22,7 +37,12 @@ const FormHandle = () => {
           Entered Company Name : {formData}
           Entered Value : {value}
         </h3>
-        <form className="flex flex-col pt-2" action="/formsubmit" method="post">
+        <form
+          onSubmit={fetchData}
+          className="flex flex-col pt-2"
+          action="/formsubmit"
+          method="post"
+        >
           <input
             className="p-2 mb-2"
             type="text"
