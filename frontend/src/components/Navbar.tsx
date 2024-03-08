@@ -1,7 +1,8 @@
 "use client";
 import { FloatingNav } from "../components/ui/floating-navbar.tsx";
 import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
-export function Navbar() {
+
+export function Navbar({ modeHandler, name }) {
   const navItems = [
     {
       name: "Home",
@@ -23,6 +24,9 @@ export function Navbar() {
   ];
   return (
     <div className="relative  w-full dark:bg-black dark:bg-grid-white/[0.2]">
+      <button className="dark:bg-white dark:text-black" onClick={modeHandler}>
+        {name == "light" ? "dark" : "light"}
+      </button>
       <FloatingNav navItems={navItems} />
       {/* <DummyContent /> */}
     </div>
